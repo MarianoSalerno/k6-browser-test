@@ -1,0 +1,15 @@
+     browser_data_received.......: 6.2 MB 752 kB/s
+     browser_data_sent...........: 59 kB  7.2 kB/s
+     browser_http_req_duration...: avg=1.45s    min=1.11ms med=1.71s    max=2.53s p(90)=2.33s    p(95)=2.53s   
+     browser_http_req_failed.....: 0.00%  ✓ 0        ✗ 175
+   ✓ browser_web_vital_cls.......: avg=0        min=0      med=0        max=0     p(90)=0        p(95)=0       
+   ✗ browser_web_vital_fcp.......: avg=2.36s    min=2.36s  med=2.36s    max=2.36s p(90)=2.36s    p(95)=2.36s   
+   ✓ browser_web_vital_inp.......: avg=48ms     min=48ms   med=48ms     max=48ms  p(90)=48ms     p(95)=48ms    
+   ✓ browser_web_vital_lcp.......: avg=2.36s    min=2.36s  med=2.36s    max=2.36s p(90)=2.36s    p(95)=2.36s   
+   ✓ browser_web_vital_ttfb......: avg=385.75ms min=2.5ms  med=385.75ms max=769ms p(90)=692.35ms p(95)=730.67ms
+     data_received...............: 0 B    0 B/s
+     data_sent...................: 0 B    0 B/s
+     iteration_duration..........: avg=7.63s    min=7.63s  med=7.63s    max=7.63s p(90)=7.63s    p(95)=7.63s   
+     iterations..................: 1      0.121801/s
+     vus.........................: 1      min=1      max=1
+     vus_max.....................: 1      min=1      max=1

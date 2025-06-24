@@ -1,0 +1,43 @@
+name: 'Core Web Vitals Test'
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  cwv-tests:
+    name: Run k6 Core Web Vitals Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR Branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.client_payload.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+
+      - name: Setup k6
+        uses: grafana/setup-k6-action@v1
+        with:
+          k6-version: '1.0.0'
+          browser: true
+
+      - name: Run k6 test
+        uses: grafana/run-k6-action@v1
+        with:
+          path: './test/k6/cwv-test.js'
+          debug: true
+        env:
+          # CITY: 'catfood'
+          ITERATIONS: 1
+          URLS: 'https://www.groupon.com/'
+          K6_BROWSER_ENABLED: 'true'
+
+      - name: Upload HTML report as an artifact
+        if: always() # This ensures the report uploads even if the test fails
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-cwv-report
+          path: test/k6/summary.html
+          if-no-files-found: error
+          retention-days: 3
