@@ -32,12 +32,3 @@ jobs:
           ITERATIONS: 1
           URLS: 'https://www.groupon.com/'
           K6_BROWSER_ENABLED: 'true'
-
-      - name: Upload HTML report as an artifact
-        if: always() # This ensures the report uploads even if the test fails
-        uses: actions/upload-artifact@v3
-        with:
-          name: k6-cwv-report
-          path: test/k6/summary.html
-          if-no-files-found: error
-          retention-days: 3
